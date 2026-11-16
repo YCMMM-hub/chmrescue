@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CHM file not showing content? Fix it on Windows, Mac or in Chrome</title>
+<meta name="description" content="A .chm help file opens blank or shows “Navigation to the webpage was canceled”? The free Windows unblock fix, and how to read the file on any device without uploading it.">
+<link rel="canonical" href="https://ycmmm-hub.github.io/chmrescue/chm-file-not-showing-content.html">
+<link rel="stylesheet" href="css/app.css">
+<link rel="icon" href="icons/icon-48.png">
+</head>
+<body>
+<header class="top"><div class="wrap"><strong class="logo"><a href="index.html">CHMRescue</a></strong><nav><a href="index.html#tool">Open a CHM</a></nav></div></header>
+<main class="wrap article">
+<h1>CHM file not showing content: the fix</h1>
+<p class="lead">You open a .chm help file and see the table of contents but the right-hand page is blank, or an error such as “Navigation to the webpage was canceled”. This is very often Windows blocking a file that was downloaded from the internet.</p>
+<div class="cta"><h2>The free Windows fix (no tool needed)</h2><ol class="steps"><li>Close the help file. Right-click the <code>.chm</code> file → <b>Properties</b>.</li><li>On the <b>General</b> tab, at the bottom, tick <b>Unblock</b> (next to “This file came from another computer and might be blocked”).</li><li>Click <b>Apply</b>, then <b>OK</b>, and open the file again. If the box is missing, the file is not blocked: try copying it to a local folder (CHM files often fail from network drives or very long paths).</li></ol><p>If you are on a Mac, Chromebook or Linux — or the fix does not help — use CHMRescue below.</p></div><h2>Why it happens</h2><p>Windows marks files downloaded from the internet or received by e-mail as coming from another computer. The old HTML Help viewer then refuses to display the pages inside, even though the file itself is fine.</p><h2>If you cannot use Windows’ viewer</h2><p>On a Mac, Chromebook or Linux there is no built-in CHM viewer at all.</p><div class="cta"><h2>Open it in your browser</h2><p>Drop the file into CHMRescue: contents, search and images work offline, and <b>the file is never uploaded</b>. Reading is free.</p><p><a class="btn" href="index.html#tool">Open a CHM file</a></p></div><p><b>Limits, honestly:</b> encrypted CHM files do not open, and some Free Pascal manuals (duplicate directory entries) are refused with a clear message. Search is a plain-text search of the pages. Old scripts inside CHM pages do not run — on purpose, for your safety.</p>
+<section class="faq"><h2>Questions</h2><details><summary>Is the file damaged?</summary><p>Usually not. If the contents list appears but the pages are blank, the file is typically just blocked. If nothing opens at all, the file may be damaged or encrypted.</p></details><details><summary>Do I have to install anything?</summary><p>No. CHMRescue runs in the browser; the Windows fix above needs nothing at all.</p></details></section>
+</main>
+<footer class="wrap foot"><p>CHMRescue is not affiliated with Microsoft. Microsoft and HTML Help are trademarks of Microsoft Corporation.</p><p><a href="privacy.html">Privacy</a> · <a href="index.html">Open a CHM</a></p></footer>
+<script type="module" src="js/track.js"></script>
+</body>
+</html>

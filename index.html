@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CHMRescue — CHM Viewer (Offline)</title>
+<meta name="description" content="Open .chm help files in your browser: table of contents, search, images. Your files stay on your device — nothing is uploaded.">
+<link rel="stylesheet" href="css/app.css">
+<link rel="canonical" href="https://ycmmm-hub.github.io/chmrescue/">
+<link rel="icon" href="icons/icon-48.png">
+<meta name="theme-color" content="#1b6b5a">
+</head>
+<body>
+<header class="top"><div class="wrap"><strong class="logo">CHMRescue</strong><nav><a href="#pricing" data-fr="Tarif">Pricing</a><a href="#faq" data-fr="Questions">FAQ</a></nav></div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1 data-fr="Ouvrez un fichier CHM sans Windows — lisez-le, cherchez dedans, exportez-le">Open a CHM file without Windows — read it, search it, export it</h1>
+    <ul class="promises">
+      <li><span data-fr="Vos fichiers restent sur votre appareil — rien n’est envoyé. Fonctionne hors ligne."><b>Your files stay on your device</b> — nothing is uploaded. Works offline.</span></li>
+      <li><span data-fr="Lecture gratuite : table des matières, recherche, images. Sans compte."><b>Reading is free</b>: contents, search, images. No account.</span></li>
+      <li><span data-fr="Pass export, paiement unique : ZIP HTML + Markdown + texte, document unique à imprimer en PDF, plusieurs CHM à la fois."><b>Export Pass, <span class="price-copy">€9</span> once</b>: ZIP of HTML + Markdown + text, one printable document (save as PDF), several CHM at once.</span></li>
+    </ul>
+  </section>
+
+  <section id="tool" class="tool" aria-label="CHM viewer">
+    <label id="drop" class="drop" for="pick">
+      <span class="drop-title" data-fr="Déposez un fichier .chm ici">Drop a .chm file here</span>
+      <span class="drop-sub" data-fr="ou cliquez pour choisir — le manuel s’ouvre en une seconde ou deux">or click to choose — the manual opens in a second or two</span>
+      <input id="pick" type="file" accept=".chm" multiple hidden>
+    </label>
+    <p id="summary" class="summary" aria-live="polite"></p>
+    <p id="license-state" class="ok-msg"></p>
+
+    <div id="viewer" class="viewer" hidden>
+      <aside class="side">
+        <form id="search" class="search" role="search"><input id="q" type="search" placeholder="Search in this manual" data-fr-ph="Chercher dans ce manuel" aria-label="Search" autocomplete="off"><button class="btn small" type="submit" data-fr="Chercher">Search</button></form>
+        <div id="search-results" class="search-results" hidden></div><button id="clear-search" class="link" type="button" data-fr="Retour à la table des matières">Back to contents</button>
+        <nav id="toc" class="toc" aria-label="Contents"></nav>
+      </aside>
+      <div class="pane">
+        <div class="bar">
+          <select id="switch" hidden aria-label="File"></select>
+          <button id="back" class="btn small ghost" type="button" aria-label="Back">←</button>
+          <button id="fwd" class="btn small ghost" type="button" aria-label="Forward">→</button>
+          <button id="prev-page" class="btn small ghost" type="button" data-fr="Précédent">Previous</button>
+          <button id="next-page" class="btn small ghost" type="button" data-fr="Suivant">Next</button>
+          <strong id="page-title" class="ptitle"></strong>
+          <button id="open-export" class="btn small" type="button" data-fr="Exporter…">Export…</button>
+        </div>
+        <iframe id="page" title="Page" sandbox="allow-same-origin"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <h2 data-fr="Pourquoi ?">Why?</h2>
+    <p data-fr="Les fichiers .chm (aide HTML compilée de Microsoft) sont souvent bloqués ou vides sous Windows, et ne s’ouvrent pas sur Mac, Chromebook ou Linux. CHMRescue les lit directement dans Chrome.">.chm files (Microsoft Compiled HTML Help) are often blocked or blank on Windows, and do not open on Mac, Chromebook or Linux. CHMRescue reads them right in Chrome.</p>
+    <p><b data-fr="Sur Windows, si le contenu ne s’affiche pas :">On Windows, if the content does not show:</b> <span data-fr="clic droit sur le fichier → Propriétés → cochez « Débloquer » → OK, puis rouvrez-le. C’est gratuit et ça marche sans CHMRescue.">right-click the file → Properties → tick “Unblock” → OK, then open it again. That is free and works without CHMRescue.</span></p>
+  </section>
+
+  <section id="pricing" class="pricing">
+    <h2 data-fr="Tarif">Pricing</h2>
+    <div class="plans">
+      <div class="plan"><h3 data-fr="Gratuit">Free</h3><p class="amount">€0</p><ul><li data-fr="Lire un CHM à la fois, autant que vous voulez">Read one CHM at a time, as often as you like</li><li data-fr="Table des matières, recherche plein texte, images">Contents, full-text search, images</li><li data-fr="Pas de compte, pas de filigrane">No account, no watermark</li></ul></div>
+      <div class="plan featured"><h3 data-fr="Pass export">Export Pass</h3><p class="amount"><span class="price-copy">€9</span> <small data-fr="paiement unique">one-time</small></p><ul><li data-fr="ZIP : HTML + Markdown + texte">ZIP: HTML + Markdown + text</li><li data-fr="Document unique à imprimer / enregistrer en PDF">One document to print / save as PDF</li><li data-fr="Plusieurs CHM à la fois">Several CHM files at once</li><li data-fr="Garantie 30 jours">30-day refund</li></ul>
+        <a class="btn buy-link" href="#" target="_blank" rel="noopener" data-fr="Acheter le Pass export">Buy the Export Pass</a>
+        <p class="no-link muted" data-fr="Le paiement n’est pas encore ouvert.">Payment is not open yet.</p>
+        <p><button id="have-code" class="link" type="button" data-fr="J’ai déjà un code">I already have a code</button></p></div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq">
+    <h2 data-fr="Questions">Questions</h2>
+    <details open><summary data-fr="Mes fichiers sont-ils envoyés quelque part ?">Are my files uploaded anywhere?</summary><p data-fr="Non. Le fichier est lu dans votre navigateur, sur votre ordinateur. L’extension ne fait aucune requête réseau et ne demande aucune permission.">No. The file is read inside your browser, on your computer. The extension makes no network request and asks for no browser permission.</p></details>
+    <details><summary data-fr="« PDF » : comment ça marche ?">How does “PDF” work?</summary><p data-fr="Avec le Pass export, CHMRescue assemble les pages du manuel en un seul document, puis vous l’imprimez avec la boîte d’impression de Chrome et choisissez « Enregistrer au format PDF ». Ce n’est pas un PDF en un clic, et la mise en page d’origine est simplifiée (le texte, les images, les tableaux et le code sont conservés). Les très gros manuels sont découpés en parties de 400 pages.">With the Export Pass, CHMRescue assembles the manual’s pages into one document; you then print it with Chrome’s print dialog and choose “Save as PDF”. It is not a one-click PDF, and the original page styling is simplified (text, images, tables and code are kept). Very large manuals are split into parts of 400 pages.</p></details>
+    <details><summary data-fr="Tous les CHM sont-ils pris en charge ?">Does it open every CHM?</summary><p data-fr="Non. Les fichiers chiffrés ne s’ouvrent pas, ni certains manuels Free Pascal (entrées de répertoire en double). Un message clair s’affiche dans ce cas.">No. Encrypted files do not open, nor some Free Pascal manuals (duplicate directory entries). A clear message is shown in that case.</p></details>
+    <details><summary data-fr="J’ai acheté le Pass sur le site, ça marche ici ?">I bought the Pass on the website — does it work here?</summary><p data-fr="Oui : cliquez sur « J’ai déjà un code » et saisissez le code reçu après paiement. Le code se saisit une fois dans l’extension (stockage séparé).">Yes: click “I already have a code” and enter the activation code shown after payment. The extension has its own storage, so the code is entered once here.</p></details>
+  </section>
+<section class="guides"><h2>Guides</h2><ul><li><a href="chm-file-not-showing-content.html">CHM file not showing content: the fix</a></li><li><a href="chm-viewer-online.html">CHM viewer online — without uploading your file</a></li><li><a href="open-chm-file-on-mac.html">How to open a CHM file on a Mac</a></li><li><a href="chm-viewer-windows-11.html">CHM viewer for Windows 11</a></li><li><a href="chm-viewer-chrome.html">A CHM viewer for Chrome</a></li><li><a href="open-chm-file-in-browser.html">Open a CHM file in a browser</a></li><li><a href="convert-chm-to-pdf.html">Convert CHM to PDF</a></li><li><a href="ouvrir-fichier-chm.html">Ouvrir un fichier CHM</a></li><li><a href="fichier-chm-ne-saffiche-pas.html">Fichier CHM : le contenu ne s’affiche pas</a></li><li><a href="lire-fichier-chm.html">Lire un fichier CHM sans Windows</a></li><li><a href="convertir-chm-en-pdf.html">Convertir un CHM en PDF</a></li><li><a href="chm-datei-oeffnen.html">CHM-Datei öffnen: Inhalt wird nicht angezeigt (Deutsch)</a></li><li><a href="abrir-archivo-chm.html">Cómo abrir un archivo CHM (y qué hacer si sale en blanco) (Español)</a></li></ul></section>
+</main>
+
+<footer class="wrap foot">
+  <p data-fr="CHMRescue n’est affilié à Microsoft d’aucune façon. Microsoft et HTML Help sont des marques de Microsoft Corporation.">CHMRescue is not affiliated with Microsoft. Microsoft and HTML Help are trademarks of Microsoft Corporation.</p>
+  <p><a href="privacy.html" data-fr="Mentions et confidentialité">Legal notice &amp; privacy</a> · <a href="third-party-notices.html" data-fr="Licences open source">Open-source notices</a></p>
+</footer>
+
+<div id="export-modal" class="modal" hidden>
+  <div class="card wide" role="dialog" aria-labelledby="ex-title">
+    <h2 id="ex-title" data-fr="Exporter ce manuel">Export this manual</h2>
+    <div class="exp-grid">
+      <div><h3 data-fr="ZIP (HTML + Markdown + texte)">ZIP (HTML + Markdown + text)</h3><button id="zip-one" class="btn" type="button" data-fr="Télécharger le ZIP">Download ZIP</button> <button id="zip-all" class="btn ghost" type="button" hidden data-fr="Tous les fichiers ouverts en un ZIP">All open files in one ZIP</button></div>
+      <div><h3 data-fr="Document unique (à imprimer en PDF)">One document (print to PDF)</h3><select id="doc-part" aria-label="Part"></select> <button id="make-doc" class="btn" type="button" data-fr="Assembler">Assemble</button> <button id="print-btn" class="btn ghost" type="button" hidden data-fr="Imprimer / Enregistrer en PDF">Print / Save as PDF</button> <button id="save-html" class="btn ghost" type="button" hidden data-fr="Enregistrer en HTML">Save as HTML</button></div>
+    </div>
+    <p id="export-msg" class="summary" aria-live="polite"></p>
+    <iframe id="print-frame" title="Document" sandbox="allow-same-origin allow-modals" hidden></iframe>
+    <button id="close-export" class="link" type="button" data-fr="Fermer">Close</button>
+  </div>
+</div>
+
+<div id="paywall" class="modal" hidden>
+  <div class="card" role="dialog" aria-labelledby="pw-title">
+    <h2 id="pw-title" data-fr="Pass export">Export Pass</h2>
+    <p data-fr="Lire un manuel est gratuit. Le Pass export (paiement unique, sans abonnement, remboursement 30 jours) débloque les exports : ZIP, document à imprimer en PDF, plusieurs CHM à la fois.">Reading a manual is free. The Export Pass (one payment, no subscription, 30-day refund) unlocks exports: ZIP, printable document for PDF, several CHM at once.</p>
+    <a class="btn buy-link" href="#" target="_blank" rel="noopener"><span data-fr="Acheter" >Buy</span> <span class="price-copy">€9</span></a>
+    <p class="no-link muted" data-fr="Le paiement n’est pas encore ouvert.">Payment is not open yet.</p>
+    <form id="activate">
+      <label for="code" data-fr="Déjà payé ? Saisissez le code d’activation reçu :">Already paid? Enter the activation code shown after payment:</label>
+      <div class="row"><input id="code" autocomplete="off" spellcheck="false" placeholder="CHMR-XXXX-XXXX"><button class="btn ghost" type="submit" data-fr="Activer">Activate</button></div>
+      <p id="code-msg" class="code-msg" aria-live="polite"></p>
+    </form>
+    <button id="close-paywall" class="link" type="button" data-fr="Plus tard">Not now</button>
+  </div>
+</div>
+
+<script src="vendor/fflate.js"></script>
+<script type="module" src="js/app.js"></script>
+<script type="module" src="js/track.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CHM viewer online — read .chm files without uploading them</title>
+<meta name="description" content="Most online CHM viewers upload your file to a server. CHMRescue reads it inside your browser instead: contents, search, images — nothing leaves your device.">
+<link rel="canonical" href="https://ycmmm-hub.github.io/chmrescue/chm-viewer-online.html">
+<link rel="stylesheet" href="css/app.css">
+<link rel="icon" href="icons/icon-48.png">
+</head>
+<body>
+<header class="top"><div class="wrap"><strong class="logo"><a href="index.html">CHMRescue</a></strong><nav><a href="index.html#tool">Open a CHM</a></nav></div></header>
+<main class="wrap article">
+<h1>CHM viewer online — without uploading your file</h1>
+<p class="lead">Many “online CHM viewers” send your file to their server. CHMRescue opens the .chm right in your browser, on your computer: the file never leaves it.</p>
+<div class="cta"><h2>Open it in your browser</h2><p>Drop the file into CHMRescue: contents, search and images work offline, and <b>the file is never uploaded</b>. Reading is free.</p><p><a class="btn" href="index.html#tool">Open a CHM file</a></p></div><h2>What you get</h2><ul class="specs"><li>Table of contents, page navigation, previous / next.</li><li>Full-text search across the manual.</li><li>Images and styles from the manual, shown as they were authored.</li><li>Works offline once the page or extension is loaded.</li></ul><h2>What it does not do</h2><p>It is a reader and an exporter, not an editor. See the limits below.</p><p><b>Limits, honestly:</b> encrypted CHM files do not open, and some Free Pascal manuals (duplicate directory entries) are refused with a clear message. Search is a plain-text search of the pages. Old scripts inside CHM pages do not run — on purpose, for your safety.</p>
+<section class="faq"><h2>Questions</h2><details><summary>Is it really not uploaded?</summary><p>The page makes no request to any server when you open, search or export a file. You can check it yourself with your browser’s developer tools (Network tab).</p></details><details><summary>Which browsers?</summary><p>Built and tested in Chrome. Other modern browsers may work; they have not been tested yet.</p></details></section>
+</main>
+<footer class="wrap foot"><p>CHMRescue is not affiliated with Microsoft. Microsoft and HTML Help are trademarks of Microsoft Corporation.</p><p><a href="privacy.html">Privacy</a> · <a href="index.html">Open a CHM</a></p></footer>
+<script type="module" src="js/track.js"></script>
+</body>
+</html>

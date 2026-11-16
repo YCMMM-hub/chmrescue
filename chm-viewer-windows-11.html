@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CHM viewer for Windows 11 — blank page fix and a browser alternative</title>
+<meta name="description" content="Windows 11 still opens .chm files, but blocks the content of downloaded ones. The free unblock fix, plus an offline browser viewer that uploads nothing.">
+<link rel="canonical" href="https://ycmmm-hub.github.io/chmrescue/chm-viewer-windows-11.html">
+<link rel="stylesheet" href="css/app.css">
+<link rel="icon" href="icons/icon-48.png">
+</head>
+<body>
+<header class="top"><div class="wrap"><strong class="logo"><a href="index.html">CHMRescue</a></strong><nav><a href="index.html#tool">Open a CHM</a></nav></div></header>
+<main class="wrap article">
+<h1>CHM viewer for Windows 11</h1>
+<p class="lead">Windows 11 can still open .chm files with its built-in HTML Help viewer, but it often shows a blank page for files downloaded from the internet. There is a free fix; and if you prefer to read in the browser, there is an alternative.</p>
+<div class="cta"><h2>The free Windows fix (no tool needed)</h2><ol class="steps"><li>Close the help file. Right-click the <code>.chm</code> file → <b>Properties</b>.</li><li>On the <b>General</b> tab, at the bottom, tick <b>Unblock</b> (next to “This file came from another computer and might be blocked”).</li><li>Click <b>Apply</b>, then <b>OK</b>, and open the file again. If the box is missing, the file is not blocked: try copying it to a local folder (CHM files often fail from network drives or very long paths).</li></ol><p>If you are on a Mac, Chromebook or Linux — or the fix does not help — use CHMRescue below.</p></div><h2>Reading in the browser instead</h2><p>CHMRescue shows the table of contents, a search box and the pages, and lets you export the manual. It runs locally.</p><div class="cta"><h2>Open it in your browser</h2><p>Drop the file into CHMRescue: contents, search and images work offline, and <b>the file is never uploaded</b>. Reading is free.</p><p><a class="btn" href="index.html#tool">Open a CHM file</a></p></div><p><b>Limits, honestly:</b> encrypted CHM files do not open, and some Free Pascal manuals (duplicate directory entries) are refused with a clear message. Search is a plain-text search of the pages. Old scripts inside CHM pages do not run — on purpose, for your safety.</p>
+<section class="faq"><h2>Questions</h2><details><summary>Is the built-in viewer removed from Windows 11?</summary><p>Not that we have found: it is the blocked-file behaviour that causes the blank pages, not a missing viewer.</p></details></section>
+</main>
+<footer class="wrap foot"><p>CHMRescue is not affiliated with Microsoft. Microsoft and HTML Help are trademarks of Microsoft Corporation.</p><p><a href="privacy.html">Privacy</a> · <a href="index.html">Open a CHM</a></p></footer>
+<script type="module" src="js/track.js"></script>
+</body>
+</html>
